@@ -16,9 +16,14 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - run: |
-        cd myexpressapp
+        cd mydemoapp
         docker build . -t isaacdemoapp.azurecr.io/isaacdemoapp:${{ github.sha }}
         docker push isaacdemoapp.azurecr.io/isaacdemoapp:${{ github.sha }}     
+
+    - name: Azure Login
+      uses: Azure/login@v1.6.1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - uses: azure/webapps-deploy@v2
       with:
