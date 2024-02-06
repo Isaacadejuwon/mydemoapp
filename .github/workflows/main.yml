@@ -29,4 +29,4 @@ jobs:
       with:
         app-name: 'isaacdemoapp'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        images: 'isaacdemoapp.azurecr.io/mydemoapp:${{ github.sha }}'
+        images: 'isaacdemoapp.azurecr.io/isaacdemoapp:${{ github.sha }}'
